@@ -44,7 +44,7 @@ class VideoEditController extends Controller
                 Storage::disk('public')->delete($video->thumbnail);
             }
         }
-        
+
         if ($request->hasFile('video')) {
             $request->validate([
                 "video" => "mimes:mkv,mp4",
@@ -68,5 +68,21 @@ class VideoEditController extends Controller
         }
 
         return redirect('/teacher/home');
+    }
+
+    public function delete($video_id){
+        if($video_id == null){
+            return redirect('/');
+        }
+
+        $deletedData = UploadVideoModel::where("Video_ID", (int) $video_id)->first();
+        
+        Storage::disk('public')->delete($deletedData->thumbnail);
+        Storage::disk('public')->delete($deletedData->video);
+        $deletedData->delete();
+
+        echo "<script>alert('Video deleted');</script>";
+
+        return redirect('/');
     }
 }

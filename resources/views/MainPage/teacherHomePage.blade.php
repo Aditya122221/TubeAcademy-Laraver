@@ -36,7 +36,7 @@ if($_SESSION["role"] != "Teacher"){
 
                     <button onclick="window.location.href='{{route('editing', ['video_id' => $video['Video_ID']])}}'" class="uiBtnEdit">Edit</button>
 
-                    <button class="uiBtnDelete">Delete</button>
+                    <button onclick="window.location.href='{{route('deleting', ['video_id' => $video['Video_ID']])}}'" class="uiBtnDelete">Delete</button>
                 </div>
             </div>
             @endforeach

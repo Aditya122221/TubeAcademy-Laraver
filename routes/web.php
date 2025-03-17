@@ -47,6 +47,7 @@ Route::get('/student/home', [StudentHomeController::class, 'index']);
 
 Route::get('/videoedit/{video_id}', [VideoEditController::class, 'index'])->name('editing');
 Route::post('/videoedit/{video_id}', [VideoEditController::class, 'update'])->name("updating");
+Route::get('/videodelete/{video_id}', [VideoEditController::class, 'delete'])->name("deleting");
 
 Route::get('/logout', function () {
     return view('MainPage.logout');
