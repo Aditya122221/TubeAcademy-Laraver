@@ -32,12 +32,12 @@ class loginController extends Controller
                     $_SESSION['Reg_ID'] = $Reg_ID;
                     return redirect('/admin/home');
                 } else {
-                    return redirect('/')->with('error','Invalid Password');
+                    return redirect('/')->with('error', 'Invalid Password');
                 }
             } else {
-                return redirect('/')->with('error','User Not Found');
+                return redirect('/')->with('error', 'User Not Found');
             }
-        } else if($data["role"] == "Teacher"){
+        } else if ($data["role"] == "Teacher") {
             $teacher = TeacherModel::where('Registration_ID', $Reg_ID)->first();
             if ($teacher) {
                 if ($teacher->password == $data['password']) {
@@ -46,12 +46,12 @@ class loginController extends Controller
                     $_SESSION['Reg_ID'] = $Reg_ID;
                     return redirect('/teacher/home');
                 } else {
-                    return redirect('/')->with('error','Invalid Password');
+                    return redirect('/')->with('error', 'Invalid Password');
                 }
             } else {
-                return redirect('/')->with('error','User Not Found');
+                return redirect('/')->with('error', 'User Not Found');
             }
-        } else if($data['role'] == "Student"){
+        } else if ($data['role'] == "Student") {
             $student = StudentModel::where('Registration_ID', $Reg_ID)->first();
             if ($student) {
                 if ($student->password == $data['password']) {
@@ -60,10 +60,10 @@ class loginController extends Controller
                     $_SESSION['Reg_ID'] = $Reg_ID;
                     return redirect('/student/home');
                 } else {
-                    return redirect('/')->with('error','Invalid Password');
+                    return redirect('/')->with('error', 'Invalid Password');
                 }
             } else {
-                return redirect('/')->with('error','User Not Found');
+                return redirect('/')->with('error', 'User Not Found');
             }
         }
     }

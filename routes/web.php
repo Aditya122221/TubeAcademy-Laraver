@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\AdminProfileController;
@@ -39,9 +40,7 @@ Route::post('/updating', [UpdateProfileController::class,'update'])->name('profi
 
 //Home Routing
 
-Route::get('/admin/home', function () {
-    return view('MainPage.adminHomePage');
-});
+Route::get('/admin/home', [AdminController::class, 'index']);
 Route::get('/teacher/home', [TeacherHomeController::class,'index']);
 
 Route::get('/student/home', [StudentHomeController::class, 'index']);
