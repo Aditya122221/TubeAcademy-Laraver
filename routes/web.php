@@ -43,7 +43,12 @@ Route::get('/admin/home', function () {
     return view('MainPage.adminHomePage');
 });
 Route::get('/teacher/home', [TeacherHomeController::class,'index']);
+
 Route::get('/student/home', [StudentHomeController::class, 'index']);
+Route::get('/student/nine', [StudentHomeController::class, 'nine']);
+Route::get('/student/ten', [StudentHomeController::class, 'ten']);
+Route::get('/student/eleven', [StudentHomeController::class, 'eleven']);
+Route::get('/student/twelve', [StudentHomeController::class, 'twelve']);
 
 Route::get('/videoedit/{video_id}', [VideoEditController::class, 'index'])->name('editing');
 Route::post('/videoedit/{video_id}', [VideoEditController::class, 'update'])->name("updating");

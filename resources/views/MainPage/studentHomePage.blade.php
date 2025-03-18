@@ -56,13 +56,7 @@ foreach ($videos as $video) {
 <body>
     @include('navbar')
     <div class="MainHome">
-        <div class="container">
-            <a href="#" class="classin">Class IX</a>
-            <a href="#" class="classin">Class X</a>
-            <a href="#" class="classin">Class XI</a>
-            <a href="#" class="classin">Class XII</a>
-        </div>
-
+        @include("subheading")
         <div class="HomeContainer">
             <div class="videosClassNine">
                 <div class="MainClassNine">
