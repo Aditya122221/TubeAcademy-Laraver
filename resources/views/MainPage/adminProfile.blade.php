@@ -30,20 +30,20 @@ if ($_SESSION['role'] != 'admin') {
         <div class="adminProfile">
             <div class="left">
                 <!-- Adjust the "selectedOne" class as needed -->
-                <div class="left1 selectedOne l1" onclick="showAccount()">
+                <div class="left1 selectedOne l1" onclick="showSection('l1')">
                     <i class="fa-regular fa-user icon"></i>
                     <span class="ttt">Account</span>
                 </div>
-                <div class="left1 l2" onclick="teacherDetail()">
+                <div class="left1 l2" onclick="showSection('l2')">
                     <i class="fa-regular fa-address-card icon"></i>
                     <span class="ttt">Registered Teacher</span>
                 </div>
-                <div class="left1 l3" onclick="studentDetail()">
+                <div class="left1 l3" onclick="showSection('l3')">
                     <i class="fa-regular fa-address-card icon"></i>
                     <span class="ttt">Registered Student</span>
                 </div>
                 <a href="/signup" class="left1 left2">Register a Member</a>
-                <div class="left1 l4" onclick="queryDetail()">
+                <div class="left1 l4" onclick="showSection('l4')">
                     <i class="fa-solid fa-clipboard-question icon"></i>
                     <span class="ttt">Query</span>
                 </div>
@@ -57,18 +57,17 @@ if ($_SESSION['role'] != 'admin') {
             <!-- -----------------------Right Section----------------------- -->
             <div class="right">
                 <div class="aright">
-                    <!-- Replace this placeholder with the content of AdminRightOne -->
                     @include('SubPage.AdminProfile.adminProfileOne')
                 </div>
-                <div class="bright">
+                <div class="bright hidden">
                     <!-- Replace this placeholder with the content of AdminRightTwo -->
                     @include('SubPage.AdminProfile.adminProfileTwo')
                 </div>
-                <div class="cright">
+                <div class="cright hidden">
                     <!-- Replace this placeholder with the content of AdminRightThree -->
                     @include('SubPage.AdminProfile.adminProfileThree')
                 </div>
-                <div class="dright">
+                <div class="dright hidden">
                     <!-- Replace this placeholder with the content of AdminRightFour -->
                     @include('SubPage.AdminProfile.adminProfileFour')
                 </div>
