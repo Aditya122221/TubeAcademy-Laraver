@@ -17,8 +17,17 @@ class EmailController extends Controller
             "email" => "required",
             "message" => "required"
         ]);
+
+        do {
+            $query_ID = rand(100000, 999999);
+            $query = EmailModel::where("query_ID", $query_ID)->first();
+        } while ($query);
+
+
         date_default_timezone_set("Asia/Kolkata");
         $newUser = new EmailModel();
+        $newUser->query_ID = $query_ID;
+        $newUser->Registration_ID = (int)$request->Reg_ID;
         $newUser->fullname = $request->fullname;
         $newUser->email = $request->email;
         $newUser->message = $request->message;

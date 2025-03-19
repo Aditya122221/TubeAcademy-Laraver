@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('email_from_clients', function (Blueprint $table) {
+            $table->integer('query_ID');
+            $table->integer('Registration_ID');
             $table->string('fullName');
             $table->string('email');
             $table->string('message');
+            $table->string('replyMessage');
             $table->date('date');
         });
     }

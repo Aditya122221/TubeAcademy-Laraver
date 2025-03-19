@@ -46,6 +46,7 @@ if (!isset($_SESSION['role'])) {
                 </div>
                 <form class="form" method="post">
                     @csrf
+                    <input type="text" name="Reg_ID" hidden value="{{$_SESSION["Reg_ID"]}}">
                     <div class="a3">
                         <div class="a4">
                             <label for="name" class="label">Name</label>
