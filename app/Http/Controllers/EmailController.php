@@ -31,7 +31,10 @@ class EmailController extends Controller
         $newUser->fullname = $request->fullname;
         $newUser->email = $request->email;
         $newUser->message = $request->message;
-        $newUser->date = date("Y-m-d H:i:s");
+        $newUser->querydate = date("Y-m-d H:i:s");
+        $newUser->replyMessage = "";
+        $newUser->resolveDate = "";
+        $newUser->status = "pending";
         $newUser->save();
 
         return view("MainPage.contact")->with("success", "Email Sent");

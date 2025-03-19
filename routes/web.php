@@ -41,6 +41,7 @@ Route::post('/updating', [UpdateProfileController::class,'update'])->name('profi
 //Home Routing
 
 Route::get('/admin/home', [AdminController::class, 'index']);
+Route::post('/reply', [AdminController::class, 'messageReply']);
 Route::get('/teacher/home', [TeacherHomeController::class,'index']);
 
 Route::get('/student/home', [StudentHomeController::class, 'index']);

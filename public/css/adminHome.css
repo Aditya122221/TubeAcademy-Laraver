@@ -194,3 +194,70 @@ label:last-child span {
         letter-spacing: 0px;
     }
 }
+
+/* ---------------------------------Query Card---------------------------- */
+
+.queryCard{
+    border-radius: 10px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding:10px;
+}
+
+.replyForm{
+    display: flex;
+    flex-direction: column;
+    font-family: "Outfit", sans-serif;
+}
+
+.disabledInput{
+    border: none;
+}
+
+textarea{
+    resize: none;
+}
+
+.enabledInput{
+    border:2px solid black;
+    border-radius: 10px;
+    margin-top: 25px;
+    padding: 15px;
+    outline: none;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    width: 35%;
+    margin-top: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.3em 0.8em 0.9em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+  }
+
+  button .svg {
+    margin-right: 10px;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  button:hover .svg {
+    transform: translateX(5px) rotate(45deg);
+  }
+
+  button:hover span {
+    transform: translateX(7px);
+  }
+

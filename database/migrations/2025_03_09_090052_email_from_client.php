@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('fullName');
             $table->string('email');
             $table->string('message');
+            $table->date('querydate');
             $table->string('replyMessage');
-            $table->date('date');
+            $table->date('resolveDate');
+            $table->string('status');
         });
     }
 
