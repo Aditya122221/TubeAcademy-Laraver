@@ -14,8 +14,8 @@ body {
 /* From Uiverse.io by Pradeepsaranbishnoi */
 :focus {
     outline: 0;
-    border-color: #2260ff;
-    box-shadow: 0 0 0 4px #b5c9fc;
+    border-color: #f08d03;
+    box-shadow: 0 0 0 4px #f08d0390;
 }
 
 .mydict div {
@@ -36,10 +36,10 @@ body {
 }
 
 .mydict input[type="radio"]:checked+span {
-    box-shadow: 0 0 0 0.0625em #0043ed;
-    background-color: #dee7ff;
+    box-shadow: 0 0 0 0.0625em #f08d03;
+    background-color: #f08d030b;
     z-index: 1;
-    color: #0043ed;
+    color: #f08d03;
 }
 
 label span {
@@ -190,43 +190,43 @@ label:last-child span {
         letter-spacing: 3px;
     }
 
-    &:active{
+    &:active {
         letter-spacing: 0px;
     }
 }
 
 /* ---------------------------------Query Card---------------------------- */
 
-.queryCard{
+.queryCard {
     border-radius: 10px;
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding:10px;
+    padding: 10px;
 }
 
-.replyForm{
+.replyForm {
     display: flex;
     flex-direction: column;
     font-family: "Outfit", sans-serif;
 }
 
-.disabledInput{
+.disabledInput {
     border: none;
 }
 
-textarea{
+textarea {
     resize: none;
 }
 
-.enabledInput{
-    border:2px solid black;
+.enabledInput {
+    border: 2px solid black;
     border-radius: 10px;
     margin-top: 25px;
     padding: 15px;
     outline: none;
 }
 
-button {
+.reply {
     display: flex;
     align-items: center;
     font-family: inherit;
@@ -242,22 +242,21 @@ button {
     border: none;
     letter-spacing: 0.05em;
     border-radius: 16px;
-  }
+}
 
-  button .svg {
+.reply .svg {
     margin-right: 10px;
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+}
 
-  button span {
+.reply span {
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-  }
+}
 
-  button:hover .svg {
+.reply:hover .svg {
     transform: translateX(5px) rotate(45deg);
-  }
+}
 
-  button:hover span {
+.reply:hover span {
     transform: translateX(7px);
-  }
-
+}
