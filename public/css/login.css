@@ -163,3 +163,8 @@ button:hover {
     width: 100%;
     font-size: .7rem;
 }
+
+.mobileView{
+    color:white;
+    font-size: 30px;
+}

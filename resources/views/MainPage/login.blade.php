@@ -31,8 +31,8 @@ if (isset($_SESSION['role'])) {
             <input type="checkbox" class="chk" id="ccc" aria-hidden="true" />
 
             <div class="signup">
-                @if (session("error"))
-                <span class="err">{{ session("error") }}</span>
+                @if (session('error'))
+                    <span class="err">{{ session('error') }}</span>
                 @endif
                 <form method="post">
                     @csrf
@@ -84,7 +84,8 @@ if (isset($_SESSION['role'])) {
                 <input class="input" type="text" id="regis" name="regis" placeholder="Enter Registration ID"
                     required="" />
 
-                <input class="input" id="pNumber" type="text" name="pNumber" placeholder="Enter Phone Number" required="" />
+                <input class="input" id="pNumber" type="text" name="pNumber" placeholder="Enter Phone Number"
+                    required="" />
 
                 <div class="radioInputs">
                     <label class="radio">
@@ -107,23 +108,7 @@ if (isset($_SESSION['role'])) {
             </div>
         </div>
     </div>
-    <script>
-        function redirectToRoute() {
-            // Get input values
-            let regis = document.getElementById("regis").value;
-            let pNumber = document.getElementById("pNumber").value;
-            let frole = document.querySelector('input[name="frole"]:checked');
-
-            // Check if all fields are filled
-            if (!regis || !pNumber || !frole) {
-                alert("Please fill all fields.");
-                return;
-            }
-
-            // Redirect to Laravel route with parameters
-            window.location.href = `{{ url('/visiting') }}/${regis}/${pNumber}/${frole.value}`;
-        }
-    </script>
+    <script src="{{asset("js/login.js")}}"></script>
 </body>
 
 </html>
