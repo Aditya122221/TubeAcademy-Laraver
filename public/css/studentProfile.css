@@ -202,3 +202,75 @@ body{
         letter-spacing: 0px;
     }
 }
+
+.bright{
+    display: none;
+}
+
+.brightOne {
+    background-color: #0082e349;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.tetd {
+    display: flex;
+    align-items: center;
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 2.5rem;
+    padding: 25px;
+    color: white;
+}
+
+.Ttdd {
+    border-radius: 25px;
+    background-color: #0082e6;
+    padding: 50px;
+}
+
+.ttable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.TableHead {
+    background-color: #e0e0e0;
+    font-size: 25px;
+    text-align: center;
+    color: #333333;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.resolved{
+    background-color: #0eeb803f;
+}
+
+.pending{
+    background-color: #eaea085a;
+}
+
+.ttd {
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1rem;
+    padding: 25px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.brightTwo {
+    margin-top: 25px;
+    border: 2px solid black;
+}

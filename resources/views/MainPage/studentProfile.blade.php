@@ -29,11 +29,11 @@ if($_SESSION['role'] != 'Student'){
         <div class="adminProfile">
             <div class="left">
                 <!-- Adjust "selectedOne" class as needed -->
-                <div class="left1 selectedOne">
+                <div class="left1 selectedOne l1" onclick="showSection('l1')">
                     <i class="fa-regular fa-user icon"></i>
                     <span class="ttt">Account</span>
                 </div>
-                <div class="left1">
+                <div class="left1 l2" onclick="showSection('l2')">
                     <i class="fa-solid fa-question"></i>
                     <span class="ttt">QMS</span>
                 </div>
@@ -47,9 +47,13 @@ if($_SESSION['role'] != 'Student'){
             <div class="aright">
                 @include('SubPage.StudentProfile.studentProfileOne')
             </div>
+            <div class="bright">
+                @include('SubPage.StudentProfile.studentProfileTwo')
+            </div>
         </div>
     </div>
 
 </body>
+<script src="{{asset('js/studentProfile.js')}}"></script>
 
 </html>

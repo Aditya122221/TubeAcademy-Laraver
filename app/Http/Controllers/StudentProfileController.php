@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StudentModel;
+use App\Models\EmailModel;
 
 class StudentProfileController extends Controller
 {
@@ -13,7 +14,8 @@ class StudentProfileController extends Controller
             return redirect("/");
         }
         $user = StudentModel::where("Registration_ID", $_SESSION["Reg_ID"])->first();
+        $queries = EmailModel::where("Registration_ID", $user->Registration_ID)->get();
 
-        return view("MainPage.studentProfile", compact("user"));
+        return view("MainPage.studentProfile", compact("user", "queries"));
     }
 }
