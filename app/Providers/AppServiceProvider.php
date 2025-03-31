@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('command.serve', \App\Console\Commands\CustomServeCommand::class);
     }
 
     /**

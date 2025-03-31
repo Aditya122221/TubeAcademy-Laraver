@@ -30,9 +30,8 @@ RUN chmod -R 775 storage bootstrap/cache && \
     chown -R www-data:www-data storage bootstrap/cache
 
 # Expose the container's port (adjust if needed)
-EXPOSE 9000
+# EXPOSE 9000
 
-ENV PORT=8000
-
-# Use Laravel's built-in server and dynamically assign the port Render provides
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+CMD ["sh", "/usr/local/bin/entrypoint.sh"]
