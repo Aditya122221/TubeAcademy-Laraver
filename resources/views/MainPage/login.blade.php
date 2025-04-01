@@ -214,7 +214,7 @@ if (isset($_SESSION['role'])) {
                     @error('Reg_ID')
                         <span class="err">{{ $message }}</span>
                     @enderror
-                    <input class="input" type="text" name="Reg_ID" placeholder="Enter Registration_ID" />
+                    <input class="input" type="text" name="Reg_ID" placeholder="Enter Phone Number" />
 
                     @error('password')
                         <span class="err">{{ $message }}</span>

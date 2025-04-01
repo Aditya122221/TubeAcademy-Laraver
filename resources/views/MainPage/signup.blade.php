@@ -97,6 +97,34 @@ if ($_SESSION['role'] != 'admin') {
         border-radius: 10px;
     }
 
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: 'Lemon';
+    }
+
+    .label {
+        margin-bottom: 5px;
+    }
+
+    .inputField {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 70%;
+        outline: none;
+
+        &:focus {
+            border: 2px solid #ff7e5f;
+        }
+    }
+
     .button {
         background: #ff7e5f;
         color: white;
