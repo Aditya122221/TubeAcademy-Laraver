@@ -115,6 +115,43 @@ if ($_SESSION['role'] == 'Student') {
         border: 2px solid blue;
         cursor: pointer;
         width: 70%;
+        font-weight: bold;
+        font-size: 1.2rem;
+        align-items: center;
+        color: white;
+        background-color: blue;
+    }
+
+    .left12 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.5cm;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: orange;
+        border: 2px solid orange;
+        color: white;
+        cursor: pointer;
+        width: 70%;
+        font-weight: bold;
+        font-size: 1.2rem;
+        align-items: center;
+        font-family: "Roboto Slab", serif;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #764f05;
+            border: 2px solid #764f05;
+        }
+    }
+
+    .left13 {
+        color: white;
+    }
+
+    .right {
+        display: flex;
         flex-direction: column;
         width: 65%;
         box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
