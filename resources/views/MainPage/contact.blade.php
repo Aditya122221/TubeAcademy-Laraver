@@ -17,9 +17,219 @@ if (!isset($_SESSION['role'])) {
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/contact.css') }}"> --}}
     <title>TubeAcademy | Contact Us</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+    body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+    }
+
+    .button {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+        margin: auto;
+        margin-top: 4cm;
+    }
+
+    .contact {
+        font-family: 'Josefin Sans';
+        color: black;
+    }
+
+    .contacting {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 25px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #edecec;
+    }
+
+    #elu {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    .textContact {
+        font-size: 3rem;
+        margin-top: 15px;
+    }
+
+    .reachUs {
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 25px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .textReach {
+        font-size: 3rem;
+        margin-top: 15px;
+    }
+
+    .formBox {
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        width: 70%;
+        margin: auto;
+        margin-top: 25px;
+        border-radius: 10px;
+    }
+
+    .a1 {
+        display: flex;
+        text-align: center;
+        font-size: 2.5rem;
+        margin: auto;
+    }
+
+    .a2 {
+        background-color: #d1e7dd;
+        color: #0a3622;
+        font-family: sans-serif;
+        font-size: 1.2rem;
+        padding: 10px 5px;
+        border: 1px solid #a3cfbb;
+        margin-top: 5px;
+    }
+
+    .uns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .unsuccessful {
+        display: none;
+        border-radius: 0.375rem;
+        background-color: #f8d7da;
+        color: #58151c;
+        font-family: sans-serif;
+        font-size: 1.2rem;
+        padding: 10px 5px;
+        border: 1px solid #f1aeb5;
+        margin-top: 5px;
+    }
+
+    .reachBox {
+        display: none;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        margin: auto;
+        margin-top: 24px;
+        padding: 25px;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 15px;
+        justify-content: space-around;
+    }
+
+    .wrapper {
+        display: inline-flex;
+        list-style: none;
+        width: 100%;
+        padding-top: 40px;
+        font-family: "Poppins", sans-serif;
+        justify-content: center;
+    }
+
+    .wrapper .icon {
+        position: relative;
+        background: #fff;
+        border-radius: 50%;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .wrapper .tooltip {
+        position: absolute;
+        top: 0;
+        font-size: 14px;
+        background: #fff;
+        color: #fff;
+        padding: 5px 8px;
+        border-radius: 5px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .wrapper .tooltip::before {
+        position: absolute;
+        content: "";
+        height: 8px;
+        width: 8px;
+        background: #fff;
+        bottom: -3px;
+        left: 50%;
+        transform: translate(-50%) rotate(45deg);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .wrapper .icon {
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    .wrapper .icon:hover .tooltip {
+        top: -45px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .wrapper .icon:hover span,
+    .wrapper .icon:hover .tooltip {
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .wrapper .facebook:hover,
+    .wrapper .facebook:hover .tooltip,
+    .wrapper .facebook:hover .tooltip::before {
+        background: #1877f2;
+        color: #fff;
+    }
+
+    .wrapper .twitter:hover,
+    .wrapper .twitter:hover .tooltip,
+    .wrapper .twitter:hover .tooltip::before {
+        background: #1da1f2;
+        color: #fff;
+    }
+
+    .wrapper .instagram:hover,
+    .wrapper .instagram:hover .tooltip,
+    .wrapper .instagram:hover .tooltip::before {
+        background: #e4405f;
+        color: #fff;
+    }
+
+    @media (max-width: 1200px) {
+        .button {
+            width: 100%;
+        }
+    }
+</style>
 
 <body>
     @include('navbar')
@@ -46,7 +256,7 @@ if (!isset($_SESSION['role'])) {
                 </div>
                 <form class="form" method="post">
                     @csrf
-                    <input type="text" name="Reg_ID" hidden value="{{$_SESSION["Reg_ID"]}}">
+                    <input type="text" name="Reg_ID" hidden value="{{ $_SESSION['Reg_ID'] }}">
                     <div class="a3">
                         <div class="a4">
                             <label for="name" class="label">Name</label>
@@ -127,7 +337,28 @@ if (!isset($_SESSION['role'])) {
 
     </div>
 
-    <script src="js/contact.js"></script>
+    {{-- <script src="js/contact.js"></script> --}}
+
+    <script>
+        var contacting = document.querySelector(".contacting")
+        var reachUs = document.querySelector(".reachUs")
+        var formBox = document.querySelector(".formBox")
+        var reachBox = document.querySelector(".reachBox")
+
+        function showContacting() {
+            contacting.style.background = "#edecec"
+            reachUs.style.background = "white"
+            formBox.style.display = "flex"
+            reachBox.style.display = "none"
+        }
+
+        function showReachBox() {
+            reachUs.style.background = "#edecec"
+            contacting.style.background = "white"
+            formBox.style.display = "none"
+            reachBox.style.display = "flex"
+        }
+    </script>
 </body>
 
 </html>
