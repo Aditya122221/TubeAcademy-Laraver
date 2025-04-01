@@ -98,6 +98,74 @@ if ($_SESSION['role'] != 'Student') {
         border-radius: 10px;
         background-color: #0082e6;
         color: white;
+        text-decoration: none;
+    }
+
+    .selectedOne {
+        color: #0082e6;
+        background-color: #0082e349;
+        border-right: 10px solid #0082e6;
+    }
+
+    .aright {
+        width: 75%;
+    }
+
+    /* ---------------------------------Right One Design------------------------------ */
+
+    .rightone {
+        display: flex;
+        border-radius: 10px;
+        background-color: #0082e349;
+        padding-left: 2%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        min-height: 100vh;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 30px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        height: 480px;
+    }
+
+    .leftContainer {
+        background-color: #0082e6;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 430px;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .profile {
+        display: flex;
+        border-radius: 50%;
+        height: 75%;
+        width: 75%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .gradienttext {
+        background-image: linear-gradient(to right, #ee00ff 0%, #fbff00 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-family: "Arvo", serif;
+    }
+
+    .rightContainer {
+        background: #0082e6;
+        flex: 1;
         max-width: 70%;
         height: 430px;
         padding: 10px;

@@ -96,6 +96,126 @@ if (!isset($_SESSION['role'])) {
     }
 
     .a2 {
+        display: flex;
+        margin: auto;
+        font-weight: bold;
+        font-size: 1.2rem;
+
+        .a11 {
+            font-weight: 400;
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.1em;
+    }
+
+    .label {
+        margin-top: 15px;
+    }
+
+    .a3 {
+        display: flex;
+        width: 100%;
+        gap: .5cm;
+        margin-top: 1.5cm;
+    }
+
+    .a4 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .input {
+        height: 1cm;
+        border-radius: 5px;
+        outline: none;
+        padding-left: 15px;
+        font-size: 20px;
+        border: 2px solid #dddbdb;
+        margin-top: 5px;
+        font-family: 'Josefin Sans';
+    }
+
+    .textArea {
+        height: 4cm;
+        width: 98%;
+        border-radius: 5px;
+        outline: none;
+        padding-top: 15px;
+        padding-left: 15px;
+        font-size: 20px;
+        border: 2px solid #dddbdb;
+        margin-top: 5px;
+        resize: none;
+    }
+
+    /* Send Button CSS */
+
+    /* From Uiverse.io by adamgiebl */
+    button {
+        font-family: inherit;
+        font-size: 20px;
+        background: royalblue;
+        color: white;
+        padding: 0.7em 1em;
+        padding-left: 0.9em;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+        cursor: pointer;
+        margin-top: 25px;
+        width: 11%;
+    }
+
+    button span {
+        display: block;
+        margin-left: 0.3em;
+        transition: all 0.3s ease-in-out;
+    }
+
+    button svg {
+        display: block;
+        transform-origin: center center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    button:hover .svg-wrapper {
+        animation: fly-1 0.6s ease-in-out infinite alternate;
+    }
+
+    button:hover svg {
+        transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    }
+
+    button:hover span {
+        transform: translateX(5em);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    @keyframes fly-1 {
+        from {
+            transform: translateY(0.1em);
+        }
+
+        to {
+            transform: translateY(-0.1em);
+        }
+    }
+
+
+    .successful {
+        display: none;
+        border-radius: 0.375rem;
         background-color: #d1e7dd;
         color: #0a3622;
         font-family: sans-serif;

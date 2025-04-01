@@ -96,6 +96,210 @@ if ($_SESSION['role'] != 'Teacher') {
         background-color: #006400;
         color: white;
         text-decoration: none;
+    }
+
+    .selectedOne {
+        color: #006400;
+        background-color: #00640349;
+        border-right: 10px solid #006400;
+    }
+
+    .right {
+        width: 85%;
+    }
+
+    .aright {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* -----------------------------------Right One Styling--------------------------- */
+
+    .rightone {
+        display: flex;
+        border-radius: 10px;
+        background-color: #00640079;
+        padding-left: 2%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        min-height: 100vh;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 30px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        height: 480px;
+    }
+
+    .leftContainer {
+        background-color: #006400;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 430px;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .profile {
+        display: flex;
+        border-radius: 50%;
+        height: 65%;
+        width: 65%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .gradienttext {
+        background-image: linear-gradient(to right, #ee00ff 0%, #fbff00 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-family: "Arvo", serif;
+    }
+
+    .rightContainer {
+        background: #006400;
+        flex: 1;
+        max-width: 70%;
+        height: 430px;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .table {
+        margin-top: 2cm;
+        background-color: transparent;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+    }
+
+    .td {
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-family: "Kanit", serif;
+        font-size: .9rem;
+    }
+
+    .td:first-child {
+        font-weight: bold;
+    }
+
+    .rightOneButton {
+        margin-top: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        color: white;
+        border-style: solid;
+        background-color: transparent;
+        border-color: rgb(219, 218, 218);
+        width: 60%;
+        height: 50px;
+        transition: 0.2s ease;
+        text-transform: uppercase;
+        border-width: 2px;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 2px;
+
+        &:hover {
+            color: rgb(247, 247, 247);
+            background-color: #ff006e;
+            border-color: #ff006e;
+            text-shadow: 0 0 50px white, 0 0 20px white, 0 0 15px white;
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        &:active {
+            letter-spacing: 0px;
+        }
+    }
+
+    /* ------------------------------Right One Styling End---------------------------- */
+
+    /* ------------------------------Right Two Styling-------------------------------- */
+
+    .rigth2 {
+        display: flex;
+        border-radius: 10px;
+        background-color: #00640079;
+        padding-left: 2%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    .account {
+        display: flex;
+        background: #006400;
+        align-items: center;
+        border-radius: 30px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        width: 85%;
+        height: 480px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .input {
+        border: none;
+        outline: none;
+        border-radius: 15px;
+        padding: 1em;
+    }
+
+    .input:focus {
+        background-color: white;
+    }
+
+    .select {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        padding: 10px;
+        margin: 5px;
+        background-color: transparent;
+        color: white;
+
+        &:focus {
+            border: 2px solid black;
+        }
+    }
+
+    .uploader {
+        display: flex;
+        gap: 50px;
+        margin: 15px;
+    }
+
+    .formm {
+        background-color: #fff;
+        box-shadow: 0 10px 60px rgb(218, 229, 255);
+        border: 1px solid rgb(159, 159, 160);
+        border-radius: 20px;
+        padding: 10px;
         text-align: center;
         font-size: 1.125rem;
         width: 30%;
@@ -227,6 +431,8 @@ if ($_SESSION['role'] != 'Teacher') {
         border: 1px solid #f1aeb5;
         margin-top: 5px;
     }
+
+    /* -----------------------------Right Two Styling End----------------------------- */
 </style>
 
 <body>

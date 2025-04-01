@@ -99,9 +99,63 @@ if ($_SESSION['role'] != 'admin') {
         margin-top: 25px;
     }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .idcard {
+        width: 12cm;
+        height: 14cm;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 10px;
+    }
+
+    .fancyShape {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .square {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: darkgreen;
+        width: 100%;
+        height: 2cm;
+    }
+
+    .downTriangle {
+        width: 100%;
+        height: 2cm;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        background-color: darkgreen;
+        border-color: darkgreen;
+    }
+
+    .hexagon {
+        height: 200px;
+        aspect-ratio: cos(30deg);
+        clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+        background: #03da32;
+        position: relative;
+        top: -130px;
+        left: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profileImage {
+        width: 150px;
+        height: 175px;
+        aspect-ratio: cos(30deg);
+        clip-path: polygon(-50% 50%, 50% 100%, 150% 50%, 50% 0);
+    }
+
+    .detail {
+        margin-top: -115px;
+    }
+
+    .nameAndDes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .name {

@@ -96,7 +96,112 @@ if ($_SESSION['role'] != 'admin') {
         }
     }
 
-    .left3 {}
+    .left3 {
+        border-radius: 10px;
+        background-color: #f08d03;
+        color: black;
+        text-decoration: none;
+    }
+
+    .selectedOne {
+        color: #cd7903;
+        background-color: #f08d0349;
+        border-right: 10px solid #f08d03;
+    }
+
+    /*-------------------------------Left Styling End----------------------------------*/
+
+    .right {
+        width: 75%;
+        overflow-y: scroll;
+    }
+
+    .aright {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ---------------------------------Right One Styling----------------------- */
+
+    .rightone {
+        display: flex;
+        border-radius: 10px;
+        background-color: #f08d0390;
+        padding-left: 2%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        min-height: 100vh;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 30px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        height: 480px;
+    }
+
+    .leftContainer {
+        background-color: #f08d03;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 430px;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .profile {
+        display: flex;
+        border-radius: 50%;
+        height: 65%;
+        width: 65%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .gradienttext {
+        background-image: linear-gradient(to right, #252422 0%, #fffcf2 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-family: "Arvo", serif;
+    }
+
+    .rightContainer {
+        background: #f08d03;
+        flex: 1;
+        max-width: 70%;
+        height: 430px;
+        padding: 10px;
+        margin: 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .otable {
+        margin-top: 2cm;
+        background-color: transparent;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: none;
+    }
+
+    .otd {
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        font-family: "Kanit", serif;
+        font-size: 1.1rem;
+    }
 
     .otd:first-child {
         font-weight: bold;
