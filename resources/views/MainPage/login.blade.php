@@ -36,7 +36,7 @@ if (isset($_SESSION['role'])) {
                 @endif
                 <form method="post">
                     @csrf
-                    <label class="label" for="ccc" aria-hidden="true">Log In</label>
+                    <label class="label" for="ccc" aria-hidden="true">Some Change</label>
 
                     {{-- <span class="err">error</span> --}}
                     @error('Reg_ID')
