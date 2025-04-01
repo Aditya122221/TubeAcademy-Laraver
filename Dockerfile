@@ -38,7 +38,7 @@ RUN apt-get install -y nginx
 COPY ./nginx.conf /etc/nginx/sites-available/default
 
 # Expose the necessary port
-EXPOSE 80
+EXPOSE 8000
 
 # Set up Supervisor to manage PHP-FPM and Nginx processes
 COPY ./supervisord.conf /etc/supervisord.conf
