@@ -333,10 +333,10 @@ if ($_SESSION['role'] != 'admin') {
                             <span class="err">{{ $message }}</span>
                         @enderror
                         <div class="radioInput">
-                            <label class="label">
+                            {{-- <label class="label">
                                 <input type="radio" name="role" value="admin" class="value1" />
                                 <span class="text">Admin</span>
-                            </label>
+                            </label> --}}
                             <label class="label">
                                 <input type="radio" name="role" value="Teacher" class="value1" />
                                 <span class="text">Teacher</span>
