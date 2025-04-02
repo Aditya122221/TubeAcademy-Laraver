@@ -30,7 +30,7 @@ if ($_SESSION['role'] != 'admin') {
         margin: 0;
         padding: 0;
         user-select: none;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     .sigern {
@@ -257,6 +257,33 @@ if ($_SESSION['role'] != 'admin') {
             display: none;
         }
     }
+
+    .err {
+        color: red;
+        font-family: 'Ubuntu';
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .succ {
+        color: #0a3622;
+        background: #d1e7dd;
+        border: #a3cfbb solid 2px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .erro {
+        color: #58151c;
+        background: #f8d7da;
+        padding: 10px;
+        border: #f1aeb5 solid 2px;
+        border-radius: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
 </style>
 
 <body>
@@ -269,22 +296,42 @@ if ($_SESSION['role'] != 'admin') {
                 </div>
                 <div class="formContainer">
                     <h2 class="h2">Create Account</h2>
-                    <span class="succ">{{ session('success') }}</span>
+                    @php
+                        $errorClass = session('error') != '' ? 'erro' : 'hidden';
+                    @endphp
+                    @php
+                        $succClass = session('success') != '' ? 'succ' : 'hidden';
+                    @endphp
+                    <span class="{{ $errorClass }}">{{ session('error') }}</span>
+                    <span class="{{$succClass}}">{{ session('success') }}</span>
                     <form class="form" method="post">
                         @csrf
+
+                        @error('fName')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <label class="label" for="fName">First Name:</label>
                         <!-- Optional: Insert error message here if applicable -->
                         <input type="text" id="first-name" name="fName" required class="inputField" />
 
+                        @error('lName')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <label class="label" for="lName">Last Name:</label>
                         <!-- Optional: Insert error message here if applicable -->
-                        <input type="text" id="last-name" name="lName" required class="inputField" />
+                        <input type="text" id="last-name" name="lName" class="inputField" />
 
+                        @error('pNumber')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <label class="label" for="pNumber">Phone Number:</label>
                         <!-- Optional: Insert error message here if applicable -->
                         <input type="text" id="phone" name="pNumber" required class="inputField" minlength="10"
-                            maxlength="10" />
+                            maxlength="10">
 
+                        @error('role')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <div class="radioInput">
                             <label class="label">
                                 <input type="radio" name="role" value="admin" class="value1" />
@@ -300,10 +347,16 @@ if ($_SESSION['role'] != 'admin') {
                             </label>
                         </div>
 
+                        @error('password')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <label class="label" for="password">Password:</label>
                         <!-- Optional: Insert error message here if applicable -->
                         <input type="password" id="password" name="password" required class="inputField" />
 
+                        @error('cPassword')
+                            <span class="err">{{ $message }}</span>
+                        @enderror
                         <label class="label" for="cPassword">Confirm Password:</label>
                         <!-- Optional: Insert error message here if applicable -->
                         <input type="password" id="confirm-password" name="cPassword" required class="inputField" />

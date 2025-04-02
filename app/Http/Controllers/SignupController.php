@@ -16,11 +16,12 @@ class SignupController extends Controller
     public function signup(Request $request)
     {
         $request->validate([
-            'fName' => 'required|string',
-            'lName' => 'required|string',
-            'pNumber' => 'required|string',
+            'fName' => 'required|string|min:3',
+            'lName' => 'string|min:3',
+            'pNumber' => 'required|numeric|digits:10',
             'role' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8',
+            'cPassword' => 'required|same:password',
         ]);
 
         $roles = [
