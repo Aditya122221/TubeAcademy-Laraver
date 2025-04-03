@@ -38,6 +38,11 @@ RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} \
     && chmod -R 775 /var/www/html/bootstrap/cache \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Set correct permissions for storage and cache folders
+RUN mkdir -p storage/framework/cache/data && \
+    chmod -R 775 storage bootstrap/cache && \
+    chown -R www-data:www-data storage bootstrap/cache
+
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
