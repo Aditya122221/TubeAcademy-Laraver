@@ -1,0 +1,8 @@
+node_modules
+vendor
+storage/logs
+storage/framework
+.env
+.DS_Store
+storage/*
+public/storage/*

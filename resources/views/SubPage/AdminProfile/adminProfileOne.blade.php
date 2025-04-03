@@ -1,7 +1,7 @@
 <div class="rightone">
     <div class="card">
         <div class="leftContainer">
-            <img src="{{$user["avatar"]=="" ? asset("Images/TeamLeader.png") : asset('storage/' . $user->avatar)}}" alt="Profile Image" class="profile">
+            <img src="{{$user["avatar"]=="" ? asset("Images/TeamLeader.png") : asset('storage/'.$user->avatar)}}" alt="Profile Image" class="profile">
 
             <h2 class="gradienttext">{{$user["fName"]}} {{$user["lName"]}}</h2>
 
