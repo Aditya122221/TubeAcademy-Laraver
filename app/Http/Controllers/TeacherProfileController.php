@@ -32,8 +32,8 @@ class TeacherProfileController extends Controller
             "video" => "required|mimes:mkv,mp4",
         ]);
 
-        $thumbnailPath = $request->file("thumbnail")->store("thumbnail", "public");
-        $videoPath = $request->file("video")->store("video", "public");
+        $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
+        $videoPath = $request->file("video")->store("video");
 
         do {
             $Video_ID = rand(100000, 999999);

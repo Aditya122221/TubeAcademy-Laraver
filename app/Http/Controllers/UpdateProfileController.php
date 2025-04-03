@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -73,15 +74,12 @@ class UpdateProfileController extends Controller
         // dd($request->hasFile('avatar'));
 
         if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('image', 'public');
-
-            if ($user->avatar) {
-                Storage::disk('public')->delete($user->avatar);
-            }
+            $avatarPath = $request->file('avatar')->store('image');
         }
 
+
         $user->update([
-            "avatar" => $avatarPath,
+            "avatar" => str_replace('public/', 'storage/', $avatarPath),
             "fName" => $request["fname"],
             "lName" => $request["lname"],
             "email" => $request["email"] ? $request["email"] : null,
