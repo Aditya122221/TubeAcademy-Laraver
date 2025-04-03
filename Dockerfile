@@ -1,26 +1,53 @@
-FROM php:8.2.12-fpm
+# Use official PHP image
+FROM php:8.2-fpm
 
+# Set working directory
+WORKDIR /var/www/html
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev \
-    libonig-dev libxml2-dev zip unzip git curl \
-    libssl-dev pkg-config
+    libpng-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    && docker-php-ext-install pdo pdo_mysql gd
 
-RUN pecl install mongodb && docker-php-ext-enable mongodb
+# Install required PHP extensions, including MongoDB
+RUN apt-get update && apt-get install -y libssl-dev && \
+    docker-php-ext-install pdo pdo_mysql && \
+    pecl install mongodb && \
+    docker-php-ext-enable mongodb
 
-RUN docker-php-ext-install mbstring exif pcntl bcmath gd pdo
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
+# Copy Laravel application files
+COPY . .
 
-WORKDIR /var/www
-COPY . /var/www
-
-RUN composer install --no-dev --optimize-autoloader
-RUN rm -rf public/storage && mkdir -p storage/app/public
-RUN git config --global --add safe.directory /var/www/html
-
-RUN chmod -R 775 storage bootstrap/cache && \
-    chown -R www-data:www-data storage bootstrap/cache
-
+# Copy entrypoint script and give execution permissions
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
-CMD ["sh", "/usr/local/bin/entrypoint.sh"]
+
+# Set correct permissions for storage and cache
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+
+# Install Laravel dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+RUN rm -rf public/storage && mkdir -p storage/app/public
+
+# Expose port for PHP-FPM
+EXPOSE 9000
+
+RUN git config --global --add safe.directory /var/www/html
+
+# Use the entrypoint script
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
