@@ -38,15 +38,16 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Ensure the required directories exist for views, cache, and sessions
 RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} \
     && chmod -R 775 /var/www/html/storage \
     && chmod -R 775 /var/www/html/bootstrap/cache \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Fix symbolic link for storage
 RUN rm -rf public/storage && mkdir -p storage/app/public
 
 # Set correct permissions for storage and cache folders
@@ -55,8 +56,6 @@ RUN mkdir -p storage/framework/cache/data && \
     chown -R www-data:www-data storage bootstrap/cache && \
     rm -f public/storage && \
     php artisan storage:link
-
-
 
 # Expose port for PHP-FPM
 EXPOSE 9000
