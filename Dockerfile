@@ -1,10 +1,10 @@
-# Use official PHP image with FPM and Alpine
+# Use official PHP image
 FROM php:8.2-fpm-alpine
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Install system dependencies and PHP extensions
+# Install system dependencies
 RUN apk update && apk add --no-cache \
     libpng-dev \
     zip \
@@ -16,27 +16,38 @@ RUN apk update && apk add --no-cache \
     gcc \
     g++ \
     make \
-    curl-dev \
-    && docker-php-ext-install gd \
-    && pecl install mongodb \
+    curl-dev
+
+# Install PHP extensions
+RUN pecl install mongodb \
     && docker-php-ext-enable mongodb
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy Laravel app
+# Copy Laravel application files
 COPY . .
 
-# Copy and set permissions for the entrypoint
+# Copy entrypoint script and give execution permissions
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Set permissions for storage and cache
+RUN mkdir -p storage/framework/{sessions,views,cache} \
+    && chmod -R 775 storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache
 
-# Expose PHP-FPM port
-EXPOSE 9000
+# Install Laravel dependencies
+RUN composer install --no-dev --optimize-autoloader
 
-# Use entrypoint
+# Create storage symlink
+RUN rm -f public/storage && php artisan storage:link || true
+
+# Expose port for Laravel server
+EXPOSE 8000
+
+# Mark repo as safe (for git)
+RUN git config --global --add safe.directory /var/www/html
+
+# Run the app
 ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
