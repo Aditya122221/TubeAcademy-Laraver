@@ -1,11 +1,11 @@
 # Use official PHP image
-FROM php:8.2-fpm
+FROM php:8.2-fpm-alpine
 
 # Set working directory
 WORKDIR /var/www/html
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add --no-cache \
     libpng-dev \
     zip \
     unzip \
@@ -14,10 +14,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql gd
 
 # Install required PHP extensions, including MongoDB
-RUN apt-get update && apt-get install -y libssl-dev && \
-    docker-php-ext-install pdo pdo_mysql && \
-    pecl install mongodb && \
-    docker-php-ext-enable mongodb
+RUN apk update && apk add --no-cache \
+    openssl-dev \
+    autoconf \
+    gcc \
+    g++ \
+    make \
+    curl-dev \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

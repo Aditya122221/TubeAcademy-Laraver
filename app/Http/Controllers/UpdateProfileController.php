@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AdminModel;
 use App\Models\StudentModel;
 use App\Models\TeacherModel;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -71,15 +72,29 @@ class UpdateProfileController extends Controller
         }
 
         $avatarPath = $user->avatar;
-        // dd($request->hasFile('avatar'));
 
-        if ($request->hasFile('avatar')) {
-            $avatarPath = $request->file('avatar')->store('image');
+        // if ($request->hasFile("avatar")) {
+        //     $file = $request->file("avatar")->getRealPath();
+        //     try{
+        //         $uploaded = Cloudinary::upload($file, [
+        //             'folder' => 'profile_pictures'
+        //         ]);
+        //         dd($uploaded->getSecurePath(), $uploaded->getPublicId());
+        //     } catch (\Exception $e) {
+        //         dd('Upload failed:', $e->getMessage());
+        //     }
+        // }
+
+        if($request->hasFile("avatar")){
+            $avatarPath = $request->file("avatar")->store("image");
+
+            if($user->avatar){
+                Storage::disk("public")->delete($user->avatar);
+            }
         }
 
-
         $user->update([
-            "avatar" => str_replace('public/', 'storage/', $avatarPath),
+            "avatar" => $avatarPath,
             "fName" => $request["fname"],
             "lName" => $request["lname"],
             "email" => $request["email"] ? $request["email"] : null,
@@ -87,5 +102,15 @@ class UpdateProfileController extends Controller
         ]);
 
         return redirect("/")->with("success", "Profile updated successfully.");
+    }
+
+    private function extractPublicIdFromUrl($url)
+    {
+        $parsedUrl = parse_url($url, PHP_URL_PATH);
+        $pathParts = explode('/', $parsedUrl);
+        $fileName = end($pathParts); // Get file name with extension
+        $publicId = str_replace('.' . pathinfo($fileName, PATHINFO_EXTENSION), '', $fileName);
+
+        return $publicId;
     }
 }
