@@ -29,7 +29,7 @@ class TeacherProfileController extends Controller
             "SubjectName" => "required|in:Chemistry,Physics,Mathematics,Biology",
             "classIn" => "required|in:IX,X,XI,XII",
             "thumbnail" => "required|mimes:jpg,jpeg,png|max:5000",
-            "video" => "required|mimes:mkv,mp4",
+            "video" => "required|mimes:mp4",
         ]);
 
         $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
@@ -51,7 +51,11 @@ class TeacherProfileController extends Controller
         $uploadVideo->duration = 0;
         $uploadVideo->video = $videoPath;
         $uploadVideo->views = 0;
-        $uploadVideo->save();
+        $done = $uploadVideo->save();
+
+        if (!$done) {
+            return redirect("/teacher/profile")->with("error", "Video Upload Failed");
+        }
 
         return redirect("/teacher/profile")->with("success", "Video Uploaded Successfully");
     }

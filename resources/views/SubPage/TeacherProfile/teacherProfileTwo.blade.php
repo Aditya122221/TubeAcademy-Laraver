@@ -53,7 +53,11 @@
 
             <button class="button" type="submit">Upload Video</button>
         </form>
-        {{-- <span class="succ">Video Uploaded Successfully</span>
-        <span class="unsucc">Video was not uploaded</span> --}}
+        @session('error')
+            <span class="errrooor">{{ session('error') }}</span>
+        @endsession
+        @session('success')
+            <span class="success">{{ session('success') }}</span>
+        @endsession
     </div>
 </div>

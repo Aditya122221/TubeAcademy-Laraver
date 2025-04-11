@@ -38,7 +38,7 @@ class VideoEditController extends Controller
             $request->validate([
                 "thumbnail" => "mimes:jpg,png,jpeg|max:5000",
             ]);
-            $thumbnailPath = $request->file('thumbnail')->store('thumbnail', 'public');
+            $thumbnailPath = $request->file('thumbnail')->store('thumbnail');
 
             if ($video->thumbnail) {
                 Storage::disk('public')->delete($video->thumbnail);
@@ -49,7 +49,7 @@ class VideoEditController extends Controller
             $request->validate([
                 "video" => "mimes:mkv,mp4",
             ]);
-            $videoPath = $request->file('video')->store('video','public');
+            $videoPath = $request->file('video')->store('video');
 
             if ($video->video) {
                 Storage::disk('public')->delete($video->video);
@@ -76,12 +76,10 @@ class VideoEditController extends Controller
         }
 
         $deletedData = UploadVideoModel::where("Video_ID", (int) $video_id)->first();
-        
+
         Storage::disk('public')->delete($deletedData->thumbnail);
         Storage::disk('public')->delete($deletedData->video);
         $deletedData->delete();
-
-        echo "<script>alert('Video deleted');</script>";
 
         return redirect('/');
     }

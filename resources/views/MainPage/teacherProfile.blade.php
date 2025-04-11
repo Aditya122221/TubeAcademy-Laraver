@@ -236,6 +236,7 @@ if ($_SESSION['role'] != 'Teacher') {
 
     .rigth2 {
         display: flex;
+        flex-direction: column;
         border-radius: 10px;
         background-color: #00640079;
         padding-left: 2%;
@@ -247,13 +248,13 @@ if ($_SESSION['role'] != 'Teacher') {
 
     .account {
         display: flex;
+        flex-direction: column;
         background: #006400;
         align-items: center;
         border-radius: 30px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
         width: 85%;
-        height: 480px;
-        align-items: center;
+        height: 560px;
         justify-content: center;
     }
 
@@ -373,7 +374,7 @@ if ($_SESSION['role'] != 'Teacher') {
     }
 
     .button {
-        margin-top: 5px;
+        margin-top: 25px;
         cursor: pointer;
         border-radius: 5px;
         color: white;
