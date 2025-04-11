@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\TeacherProfileController;
 use App\Http\Controllers\TeacherHomeController;
 use App\Http\Controllers\SignupController;
-use App\Http\Controllers\VIdeoEditController;
+use App\Http\Controllers\VideoEditController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\StudentProfileController;
 use App\Http\Controllers\UpdateProfileController;

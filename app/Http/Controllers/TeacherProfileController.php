@@ -33,7 +33,6 @@ class TeacherProfileController extends Controller
         ]);
 
         $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
-        dd($thumbnailPath);
         $videoPath = $request->file("video")->store("video");
 
         do {
@@ -45,9 +44,9 @@ class TeacherProfileController extends Controller
         $uploadVideo->Video_ID = $Video_ID;
         $uploadVideo->Registration_ID = Session::get("user_id");
         $uploadVideo->thumbnail = $thumbnailPath;
-        $uploadVideo->title = $request->VTitle;
-        $uploadVideo->subjectName = $request->SubjectName;
-        $uploadVideo->classIn = $request->classIn;
+        $uploadVideo->title = $request["VTitle"];
+        $uploadVideo->subjectName = $request["SubjectName"];
+        $uploadVideo->classIn = $request["classIn"];
         $uploadVideo->teacherName = Session::get("name");
         $uploadVideo->duration = 0;
         $uploadVideo->video = $videoPath;
