@@ -25,7 +25,7 @@ class VideoEditController extends Controller
     public function update(Request $request, $video_id){
         $request->validate([
             "SubjectName" => "in:Mathematics,Physics,Chemistry,Biology",
-            "classIn" => "in:IX,X,XI,XII",
+            "forClass" => "in:IX,X,XI,XII",
         ]);
 
         $video = UploadVideoModel::where("Video_ID", (int)$video_id)->first();
@@ -56,9 +56,9 @@ class VideoEditController extends Controller
             }
         }
         $done = $video->update([
-            "title" => $request->VTitle,
-            "subjectName" => $request->SubjectName,
-            "classIn" => $request->classIn,
+            "title" => $request["VTitle"],
+            "subjectName" => $request["SubjectName"],
+            "forClass" => $request["forClass"],
             "thumbnail" => $thumbnailPath,
             "video" => $videoPath
         ]);
