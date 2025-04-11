@@ -33,6 +33,7 @@ class TeacherProfileController extends Controller
         ]);
 
         $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
+        dd($thumbnailPath);
         $videoPath = $request->file("video")->store("video");
 
         do {
