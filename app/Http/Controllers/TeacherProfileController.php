@@ -29,10 +29,16 @@ class TeacherProfileController extends Controller
             "SubjectName" => "required|in:Chemistry,Physics,Mathematics,Biology",
             "classIn" => "required|in:IX,X,XI,XII",
             "thumbnail" => "required|mimes:jpg,jpeg,png|max:5000",
+            "video" => "required|mimes:mp4|max:200000"
         ]);
 
-        $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
-        $videoPath = $request->file("video")->store("video");
+        if($request->hasFile("thumbnail")){
+            $thumbnailPath = $request->file("thumbnail")->store("thumbnail");
+        }
+
+        if($request->hasFile("video")){
+            $videoPath = $request->file("video")->store("video");
+        }
 
         do {
             $Video_ID = rand(100000, 999999);
