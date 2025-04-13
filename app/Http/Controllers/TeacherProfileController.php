@@ -59,7 +59,7 @@ class TeacherProfileController extends Controller
         $uploadVideo->title = $request["VTitle"];
         $uploadVideo->subjectName = $request["SubjectName"];
         $uploadVideo->teacherName = Session::get("name");
-        $uploadVideo->classIn = $request["classIn"];
+        $uploadVideo->class = $request["classIn"];
         $uploadVideo->duration = 0;
         $uploadVideo->video = $videoPath;
         $uploadVideo->views = 0;

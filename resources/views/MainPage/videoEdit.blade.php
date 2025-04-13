@@ -269,7 +269,7 @@ if ($_SESSION['role'] != 'Teacher') {
                 <span class="errrooor">{{ $errors->first('classIn') }}</span>
             @endif
             @php
-                $selectedClass = $video['classIn'];
+                $selectedClass = $video['class'];
             @endphp
             <select required name="classIn" class="select">
                 <option class="option" value="">--- Select Class ---</option>

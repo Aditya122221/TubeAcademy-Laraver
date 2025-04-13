@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("subjectName");
             $table->string("teacherName");
-            $table->string("classIn");
+            $table->string("class");
             $table->integer("duration");
             $table->string("video");
             $table->integer("views");

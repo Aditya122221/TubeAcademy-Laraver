@@ -28,6 +28,8 @@ class VideoEditController extends Controller
             "classIn" => "in:IX,X,XI,XII",
         ]);
 
+        // dd($request["classIn"]);
+
         $video = UploadVideoModel::where("Video_ID", (int)$video_id)->first();
         if(!$video){
             return "No video found";
@@ -56,9 +58,9 @@ class VideoEditController extends Controller
             }
         }
         $done = $video->update([
+            "class" => $request["classIn"],
             "title" => $request["VTitle"],
             "subjectName" => $request["SubjectName"],
-            "classIn" => $request["classIn"],
             "thumbnail" => $thumbnailPath,
             "video" => $videoPath
         ]);
