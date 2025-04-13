@@ -194,7 +194,7 @@ body{
                     <h3 class="title">{{ $video['title'] }}</h3>
                     <div class="details">
                         <div class="subject">{{ $video['subjectName'] }}</div>
-                        <div class="classIn">{{ $video['forClass'] }}</div>
+                        <div class="classIn">{{ $video['classIn'] }}</div>
                     </div>
                     <div class="actionButton">
 
