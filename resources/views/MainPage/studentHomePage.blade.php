@@ -8,7 +8,6 @@ if ($_SESSION['role'] != 'Student') {
     exit();
 }
 
-
 $kN = 1;
 $kT = 1;
 $kE = 1;
@@ -66,7 +65,6 @@ foreach ($videos as $video) {
 
     .MainClassNine {
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
         width: 100%;
     }
@@ -74,6 +72,7 @@ foreach ($videos as $video) {
     .cards {
         display: flex;
         flex-direction: column;
+        margin: 1cm;
         width: 28%;
         height: 100%;
     }

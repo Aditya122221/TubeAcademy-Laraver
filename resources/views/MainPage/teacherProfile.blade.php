@@ -93,15 +93,15 @@ if ($_SESSION['role'] != 'Teacher') {
 
     .left3 {
         border-radius: 10px;
-        background-color: #006400;
+        background-color: #333333;
         color: white;
         text-decoration: none;
     }
 
     .selectedOne {
-        color: #006400;
-        background-color: #00640349;
-        border-right: 10px solid #006400;
+        color: white;
+        background-color: #26A69A;
+        border-right: 10px solid #333333;
     }
 
     .right {
@@ -118,11 +118,11 @@ if ($_SESSION['role'] != 'Teacher') {
     .rightone {
         display: flex;
         border-radius: 10px;
-        background-color: #00640079;
         padding-left: 2%;
         padding-top: 5%;
         padding-bottom: 5%;
         min-height: 100vh;
+        width:100%;
     }
 
     .card {
@@ -137,7 +137,7 @@ if ($_SESSION['role'] != 'Teacher') {
     }
 
     .leftContainer {
-        background-color: #006400;
+        background-color: #333333;
         width: 35%;
         display: flex;
         flex-direction: column;
@@ -166,7 +166,7 @@ if ($_SESSION['role'] != 'Teacher') {
     }
 
     .rightContainer {
-        background: #006400;
+        background: #333333;
         flex: 1;
         max-width: 70%;
         height: 430px;
@@ -238,7 +238,6 @@ if ($_SESSION['role'] != 'Teacher') {
         display: flex;
         flex-direction: column;
         border-radius: 10px;
-        background-color: #00640079;
         padding-left: 2%;
         padding-top: 5%;
         padding-bottom: 5%;
@@ -249,7 +248,7 @@ if ($_SESSION['role'] != 'Teacher') {
     .account {
         display: flex;
         flex-direction: column;
-        background: #006400;
+        background: #333333;
         align-items: center;
         border-radius: 30px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -369,7 +368,7 @@ if ($_SESSION['role'] != 'Teacher') {
     }
 
     .option {
-        background-color: #006400;
+        background-color: #333333;
         color: white;
     }
 

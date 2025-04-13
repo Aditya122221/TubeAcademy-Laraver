@@ -45,9 +45,9 @@ $uniqueSubjects = collect($nineVideos)->pluck('subjectName')->unique();
     .cards {
         display: flex;
         flex-direction: column;
+        margin:15px;
         width: 28%;
         height: 10cm;
-        margin-top: 5px;
     }
 
     .cards:hover .thumbnail {
@@ -126,8 +126,6 @@ $uniqueSubjects = collect($nineVideos)->pluck('subjectName')->unique();
         display: flex;
         flex-wrap: wrap;
         padding: 15px;
-        gap: 10px;
-        justify-content: space-between;
     }
 
     @media (max-width: 930px) {

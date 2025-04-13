@@ -126,7 +126,6 @@ if ($_SESSION['role'] != 'admin') {
     .rightone {
         display: flex;
         border-radius: 10px;
-        background-color: #f08d0390;
         padding-left: 2%;
         padding-top: 5%;
         padding-bottom: 5%;

@@ -107,8 +107,12 @@ if ($_SESSION['role'] != 'Student') {
         border-right: 10px solid #0082e6;
     }
 
-    .aright {
+    .right {
         width: 75%;
+    }
+
+    .aright {
+        width: 100%;
     }
 
     /* ---------------------------------Right One Design------------------------------ */
@@ -116,11 +120,11 @@ if ($_SESSION['role'] != 'Student') {
     .rightone {
         display: flex;
         border-radius: 10px;
-        background-color: #0082e349;
         padding-left: 2%;
         padding-top: 5%;
         padding-bottom: 5%;
         min-height: 100vh;
+        width: 100%
     }
 
     .card {
@@ -230,11 +234,15 @@ if ($_SESSION['role'] != 'Student') {
 
     .bright {
         display: none;
+        width: 100%;
     }
 
     .brightOne {
-        background-color: #0082e349;
         min-height: 100vh;
+        width: 100%;
+    }
+
+    .rightFour{
         width: 100%;
     }
 
@@ -247,7 +255,6 @@ if ($_SESSION['role'] != 'Student') {
         font-style: normal;
         font-size: 2.5rem;
         padding: 25px;
-        color: white;
     }
 
     .Ttdd {
@@ -324,11 +331,13 @@ if ($_SESSION['role'] != 'Student') {
                 </a>
                 <a href="/student/home" class="left1 left3">Home</a>
             </div>
-            <div class="aright">
-                @include('SubPage.StudentProfile.studentProfileOne')
-            </div>
-            <div class="bright">
-                @include('SubPage.StudentProfile.studentProfileTwo')
+            <div class="right">
+                <div class="aright">
+                    @include('SubPage.StudentProfile.studentProfileOne')
+                </div>
+                <div class="bright">
+                    @include('SubPage.StudentProfile.studentProfileTwo')
+                </div>
             </div>
         </div>
     </div>
