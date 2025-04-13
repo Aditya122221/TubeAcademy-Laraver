@@ -245,7 +245,7 @@ $uniqueSubjects = collect($nineVideos)->pluck('subjectName')->unique();
                         <h3 class="title">{{ $video->title }}</h3>
                         <div class="details">
                             <div class="subject">{{ $video->subjectName }}</div>
-                            <div class="classIn">{{ $video->classIn }}</div>
+                            <div class="classIn">{{ $video->class }}</div>
                         </div>
                         <div class="teacherName">{{ $video->teacherName }}</div>
                         <button class="button">Watch Now</button>

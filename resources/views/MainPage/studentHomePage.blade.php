@@ -8,6 +8,7 @@ if ($_SESSION['role'] != 'Student') {
     exit();
 }
 
+
 $kN = 1;
 $kT = 1;
 $kE = 1;
@@ -24,16 +25,16 @@ foreach ($videos as $video) {
         break;
     }
 
-    if ($video['classIn'] == 'IX' && $kN < 4) {
+    if ($video['class'] == 'IX' && $kN < 4) {
         $nineVideos[] = $video;
         $kN += 1;
-    } elseif ($video['classIn'] == 'X' && $kT < 4) {
+    } elseif ($video['class'] == 'X' && $kT < 4) {
         $tenVideos[] = $video;
         $kT += 1;
-    } elseif ($video['classIn'] == 'XI' && $kE < 4) {
+    } elseif ($video['class'] == 'XI' && $kE < 4) {
         $elevenVideos[] = $video;
         $kE += 1;
-    } elseif ($video['classIn'] == 'XII' && $kTw < 4) {
+    } elseif ($video['class'] == 'XII' && $kTw < 4) {
         $twelveVideos[] = $video;
         $kTw += 1;
     }
@@ -48,7 +49,7 @@ foreach ($videos as $video) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="{{ asset('css/studentHome.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/studentHome.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{asset("css/cardDesign.css")}}"> --}}
     <title>TubeAcademy</title>
 </head>
@@ -111,7 +112,7 @@ foreach ($videos as $video) {
         background-color: #0e0e1a;
         border: none;
         width: 100%;
-        height: 60px;
+        height: 100px;
         transition: 0.2s ease;
         text-transform: uppercase;
         border-radius: 0.4rem;
@@ -285,7 +286,7 @@ foreach ($videos as $video) {
         border: 11px solid black;
     }
 
-    .button {
+    /* .button {
         cursor: pointer;
         border-radius: 5px;
         padding: 4px 10px;
@@ -298,7 +299,7 @@ foreach ($videos as $video) {
             background-color: black;
             color: white;
         }
-    }
+    } */
 
     .videoName {
         font-family: 'Rubik';
@@ -353,7 +354,7 @@ foreach ($videos as $video) {
                             <h3 class="title">{{ $video->title }}</h3>
                             <div class="details">
                                 <div class="subject">{{ $video->subjectName }}</div>
-                                <div class="classIn">{{ $video->classIn }}</div>
+                                <div class="classIn">{{ $video->class }}</div>
                             </div>
                             <div class="teacherName">{{ $video->teacherName }}</div>
                             <button class="button">Watch Now</button>
@@ -373,7 +374,7 @@ foreach ($videos as $video) {
                                 <h3 class="title">{{ $video->title }}</h3>
                                 <div class="details">
                                     <div class="subject">{{ $video->subjectName }}</div>
-                                    <div class="classIn">{{ $video->forClass }}</div>
+                                    <div class="classIn">{{ $video->class }}</div>
                                 </div>
                                 <div class="teacherName">{{ $video->teacherName }}</div>
                                 <button class="button">Watch Now</button>
@@ -394,7 +395,7 @@ foreach ($videos as $video) {
                                 <h3 class="title">{{ $video->title }}</h3>
                                 <div class="details">
                                     <div class="subject">{{ $video->subjectName }}</div>
-                                    <div class="classIn">{{ $video->forClass }}</div>
+                                    <div class="classIn">{{ $video->class }}</div>
                                 </div>
                                 <div class="teacherName">{{ $video->teacherName }}</div>
                                 <button class="button">Watch Now</button>
@@ -415,7 +416,7 @@ foreach ($videos as $video) {
                                 <h3 class="title">{{ $video->title }}</h3>
                                 <div class="details">
                                     <div class="subject">{{ $video->subjectName }}</div>
-                                    <div class="classIn">{{ $video->forClass }}</div>
+                                    <div class="classIn">{{ $video->class }}</div>
                                 </div>
                                 <div class="teacherName">{{ $video->teacherName }}</div>
                                 <button class="button">Watch Now</button>

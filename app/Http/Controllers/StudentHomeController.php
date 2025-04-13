@@ -13,22 +13,22 @@ class StudentHomeController extends Controller
     }
 
     public function nine(){
-        $nineVideos = UploadVideoModel::where("classIn", "IX")->get();
+        $nineVideos = UploadVideoModel::where("class", "IX")->get();
         return view("MainPage.classnine", compact("nineVideos"));
     }
 
     public function ten(){
-        $tenVideos = UploadVideoModel::where("classIn", "X")->get();
+        $tenVideos = UploadVideoModel::where("class", "X")->get();
         return view("MainPage.classten", compact("tenVideos"));
     }
 
     public function eleven(){
-        $elevenVideos = UploadVideoModel::where("classIn", "XI")->get();
+        $elevenVideos = UploadVideoModel::where("class", "XI")->get();
         return view("MainPage.classeleven", compact("elevenVideos"));
     }
 
     public function twelve(){
-        $twelveVideos = UploadVideoModel::where("classIn", "XII")->get();
+        $twelveVideos = UploadVideoModel::where("class", "XII")->get();
         return view("MainPage.classtwelve", compact("twelveVideos"));
     }
 }
