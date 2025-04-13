@@ -32,6 +32,8 @@ class TeacherProfileController extends Controller
             "classIn" => "required|in:IX,X,XI,XII",
         ]);
 
+        dd($request->thumbnail);
+
         $thumbnailPath = "";
         $videoPath = "";
 
@@ -53,6 +55,8 @@ class TeacherProfileController extends Controller
             $Video_ID = rand(100000, 999999);
             $video = UploadVideoModel::where("Video_ID", $Video_ID)->first();
         } while ($video);
+
+
 
         $uploadVideo = new UploadVideoModel();
         $uploadVideo->Video_ID = $Video_ID;
