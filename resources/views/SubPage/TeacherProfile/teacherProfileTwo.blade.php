@@ -18,10 +18,10 @@
                 <option class="option" value="Biology">Biology</option>
             </select>
 
-            @error('forClass')
+            @error('classIn')
                 <span class="errrooor">{{ $message }}</span>
             @enderror
-            <select name="forClass" class="select">
+            <select name="classIn" class="select">
                 <option class="option" value="">--- Select Class ---</option>
                 <option class="option" value="IX">IX</option>
                 <option class="option" value="X">X</option>
