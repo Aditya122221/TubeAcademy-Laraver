@@ -31,6 +31,7 @@ if (isset($_SESSION['role'])) {
     @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
 
 
     body {
@@ -92,7 +93,7 @@ if (isset($_SESSION['role'])) {
         border: none;
         outline: none;
         border-radius: 5px;
-        font-family: 'Chakra Petch';
+        font-family: "Iceberg", sans-serif;
         font-size: 1.2rem;
     }
 
@@ -152,7 +153,7 @@ if (isset($_SESSION['role'])) {
         padding: 0.25rem;
         width: 72%;
         margin: auto;
-        font-family: 'Chakra Petch';
+        font-family: "Iceberg", sans-serif;
         font-size: 1rem;
     }
 
@@ -203,14 +204,14 @@ if (isset($_SESSION['role'])) {
             <input type="checkbox" class="chk" id="ccc" aria-hidden="true" />
 
             <div class="signup">
-                @if (session('error'))
-                    <span class="err">{{ session('error') }}</span>
-                @endif
                 <form method="post">
                     @csrf
                     <label class="label" for="ccc" aria-hidden="true">Log In</label>
 
                     {{-- <span class="err">error</span> --}}
+                    @if (session('error'))
+                        <span class="err">{{ session('error') }}</span>
+                    @endif
                     @error('Reg_ID')
                         <span class="err">{{ $message }}</span>
                     @enderror

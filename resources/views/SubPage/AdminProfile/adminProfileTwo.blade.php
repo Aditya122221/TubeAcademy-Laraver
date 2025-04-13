@@ -1,4 +1,4 @@
-<div class="rightTwo">
+<div class="rightTwo full">
     <div class="brightOne">
         <h2 class="tetd">Teacher Details</h2>
         <div class="Ttdd">

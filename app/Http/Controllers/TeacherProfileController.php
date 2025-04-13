@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmailModel;
 use Illuminate\Http\Request;
 use App\Models\TeacherModel;
 use App\Models\UploadVideoModel;
@@ -18,8 +19,9 @@ class TeacherProfileController extends Controller
         Session::put("user_id", $_SESSION["Reg_ID"]);
         $user = TeacherModel::where("Registration_ID", $_SESSION["Reg_ID"])->first();
         Session::put("name", $user->fName." ".$user->lName);
+        $queries = EmailModel::where("Registration_ID", $user->Registration_ID)->get();
 
-        return view("MainPage.teacherProfile", compact('user'));
+        return view("MainPage.teacherProfile", compact('user', 'queries'));
     }
 
     public function uploadVideo(Request $request)

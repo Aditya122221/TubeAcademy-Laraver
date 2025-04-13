@@ -17,6 +17,7 @@ if ($_SESSION['role'] != 'Teacher') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
     {{-- <link rel="stylesheet" href="{{ asset('css/teacherProfile.css') }}"> --}}
     <title>TubeAcademy | Profile</title>
 </head>
@@ -122,7 +123,7 @@ if ($_SESSION['role'] != 'Teacher') {
         padding-top: 5%;
         padding-bottom: 5%;
         min-height: 100vh;
-        width:100%;
+        width: 100%;
     }
 
     .card {
@@ -403,6 +404,70 @@ if ($_SESSION['role'] != 'Teacher') {
         }
     }
 
+    h1 {
+        color: white;
+    }
+
+    .cright {
+        width: 100%;
+    }
+
+    .rightFour {
+        width: 100%;
+    }
+
+    .tetd {
+        display: flex;
+        align-items: center;
+        font-family: "Roboto Condensed", serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 2.5rem;
+        padding: 25px;
+    }
+
+    .Ttdd {
+        border-radius: 25px;
+        background-color: #333333;
+        padding: 50px;
+    }
+
+    .ttable {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    .TableHead {
+        background-color: #e0e0e0;
+        font-size: 25px;
+        text-align: center;
+        color: #333333;
+        font-weight: bold;
+    }
+
+    .ttd {
+        font-family: "Roboto Condensed", serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 1rem;
+        padding: 25px;
+        border: 1px solid #cccccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .resolved {
+        background-color: #0eeb803f;
+    }
+
+    .pending {
+        background-color: #eaea085a;
+    }
+
     .errrooor {
         color: red;
         font-size: 1rem;
@@ -443,13 +508,18 @@ if ($_SESSION['role'] != 'Teacher') {
         <div class="adminProfile">
             <div class="left">
                 <!-- "selectedOne" class is statically added for demonstration; adjust as needed -->
-                <div class="left1 selectedOne l1" onclick="showAccount()">
+                <div class="left1 selectedOne l1" onclick="showSection('l1')">
                     <i class="fa-regular fa-user icon"></i>
                     <span class="ttt">Account</span>
                 </div>
-                <div class="left1 l2" onclick="showUpload()">
+                <div class="left1 l2" onclick="showSection('l2')">
                     <i class="fa-solid fa-file-arrow-up icon"></i>
                     <span class="ttt">Upload Video</span>
+                </div>
+
+                <div class="left1 l3" onclick="showSection('l3')">
+                    <i class="fa-light fa-clipboard-question"></i>
+                    <span class="ttt">Queries</span>
                 </div>
                 <a href="/logout" class="left1 left2">
                     <i class="fa-solid fa-arrow-right-from-bracket icon"></i>
@@ -466,31 +536,26 @@ if ($_SESSION['role'] != 'Teacher') {
                     <!-- Replace this with the content of TeacherRightTwo -->
                     @include('SubPage.TeacherProfile.teacherProfileTwo')
                 </div>
+                <div class="cright">
+                    @include('SubPage.TeacherProfile.teacherProfileThree')
+                </div>
             </div>
         </div>
     </div>
     {{-- <script src="{{ asset('js/teacherProfile.js') }}"></script> --}}
 
     <script>
-        var l1 = document.querySelector(".l1")
-        var l2 = document.querySelector(".l2")
-        var aright = document.querySelector(".aright")
-        var bright = document.querySelector(".bright")
-
-        function showAccount() {
-            l1.classList.add("selectedOne")
-            l2.classList.remove("selectedOne")
-
-            aright.style.display = "flex"
-            bright.style.display = "none"
+        var sections = {
+            l1: document.querySelector(".aright"),
+            l2: document.querySelector(".bright"),
+            l3: document.querySelector(".cright"),
         }
 
-        function showUpload() {
-            l1.classList.remove("selectedOne")
-            l2.classList.add("selectedOne")
-
-            aright.style.display = "none"
-            bright.style.display = "flex"
+        function showSection(selected) {
+            Object.keys(sections).forEach((key) => {
+                document.querySelector("." + key).classList.toggle("selectedOne", key == selected);
+                sections[key].style.display = key == selected ? "flex" : "none";
+            })
         }
     </script>
 </body>

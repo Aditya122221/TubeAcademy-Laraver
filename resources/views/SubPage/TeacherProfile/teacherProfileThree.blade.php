@@ -1,4 +1,4 @@
-<div class="rightFour full">
+<div class="rightFour">
     <div class="brightOne">
         <h2 class="tetd">Queries</h2>
         <div class="Ttdd">

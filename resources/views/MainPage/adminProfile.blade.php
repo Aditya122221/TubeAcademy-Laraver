@@ -18,6 +18,7 @@ if ($_SESSION['role'] != 'admin') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     {{-- <link rel="stylesheet" href="{{ asset('css/adminProfile.css') }}"> --}}
     <title>TubeAcademy | Profile</title>
 </head>
@@ -244,7 +245,6 @@ if ($_SESSION['role'] != 'admin') {
     }
 
     .brightOne {
-        background-color: #f08d0394;
         min-height: 100vh;
         width: 100%;
     }
@@ -264,7 +264,6 @@ if ($_SESSION['role'] != 'admin') {
         font-style: normal;
         font-size: 2.5rem;
         padding: 25px;
-        color: white;
     }
 
     .ttd {
@@ -333,6 +332,10 @@ if ($_SESSION['role'] != 'admin') {
     .pending {
         background-color: #eaea085a;
     }
+
+    .full{
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -369,18 +372,18 @@ if ($_SESSION['role'] != 'admin') {
 
             <!-- -----------------------Right Section----------------------- -->
             <div class="right">
-                <div class="aright">
+                <div class="aright full">
                     @include('SubPage.AdminProfile.adminProfileOne')
                 </div>
-                <div class="bright hidden">
+                <div class="bright full hidden">
                     <!-- Replace this placeholder with the content of AdminRightTwo -->
                     @include('SubPage.AdminProfile.adminProfileTwo')
                 </div>
-                <div class="cright hidden">
+                <div class="cright full hidden">
                     <!-- Replace this placeholder with the content of AdminRightThree -->
                     @include('SubPage.AdminProfile.adminProfileThree')
                 </div>
-                <div class="dright hidden">
+                <div class="dright full hidden">
                     <!-- Replace this placeholder with the content of AdminRightFour -->
                     @include('SubPage.AdminProfile.adminProfileFour')
                 </div>

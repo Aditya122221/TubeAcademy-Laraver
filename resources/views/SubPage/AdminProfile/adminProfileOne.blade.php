@@ -1,4 +1,4 @@
-<div class="rightone">
+<div class="rightone full">
     <div class="card">
         <div class="leftContainer">
             <img class="profile" alt="Profile" src="{{$user["avatar"]=="" ? asset("Images/TeamLeader.png") : asset('storage/' . $user->avatar)}}">
