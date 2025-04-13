@@ -30,6 +30,9 @@ class TeacherProfileController extends Controller
             "classIn" => "required|in:IX,X,XI,XII",
         ]);
 
+        $thumbnailPath = "";
+        $videoPath = "";
+
         if($request->hasFile("thumbnail")){
             $request->validate([
                 "thumbnail" => "required|mimes:jpg,png,jpeg|max:5000",
