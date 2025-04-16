@@ -265,13 +265,13 @@ if ($_SESSION['role'] != 'Teacher') {
                 </option>
             </select>
 
-            @if ($errors->has('classIn'))
-                <span class="errrooor">{{ $errors->first('classIn') }}</span>
+            @if ($errors->has('class'))
+                <span class="errrooor">{{ $errors->first('class') }}</span>
             @endif
             @php
                 $selectedClass = $video['class'];
             @endphp
-            <select required name="classIn" class="select">
+            <select required name="class" class="select">
                 <option class="option" value="">--- Select Class ---</option>
                 <option class="option" value="IX" {{ $selectedClass == 'IX' ? 'selected' : '' }}>IX</option>
                 <option class="option" value="X" {{ $selectedClass == 'X' ? 'selected' : '' }}>X</option>

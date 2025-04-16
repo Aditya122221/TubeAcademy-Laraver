@@ -25,7 +25,7 @@ class VideoEditController extends Controller
     public function update(Request $request, $video_id){
         $request->validate([
             "SubjectName" => "in:Mathematics,Physics,Chemistry,Biology",
-            "classIn" => "in:IX,X,XI,XII",
+            "class" => "in:IX,X,XI,XII",
         ]);
 
         // dd($request["classIn"]);
@@ -58,7 +58,7 @@ class VideoEditController extends Controller
             }
         }
         $done = $video->update([
-            "class" => $request["classIn"],
+            "class" => $request["class"],
             "title" => $request["VTitle"],
             "subjectName" => $request["SubjectName"],
             "thumbnail" => $thumbnailPath,
