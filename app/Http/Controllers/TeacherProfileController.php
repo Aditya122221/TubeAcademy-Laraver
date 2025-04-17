@@ -43,15 +43,11 @@ class TeacherProfileController extends Controller
         }
 
         if($request->hasFile("video")){
-
-            dd($request->file("video"));
             $request->validate([
                 "video" => "required|mimes:mp4",
             ]);
             $videoPath = $request->file("video")->store("video");
         }
-
-        dd($thumbnailPath, $videoPath);
 
         do {
             $Video_ID = rand(100000, 999999);
