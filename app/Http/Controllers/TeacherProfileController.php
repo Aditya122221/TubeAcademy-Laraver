@@ -32,8 +32,6 @@ class TeacherProfileController extends Controller
             "classIn" => "required|in:IX,X,XI,XII",
         ]);
 
-        dd($request->thumbnail, $request->video);
-
         $thumbnailPath = "";
         $videoPath = "";
 
@@ -50,6 +48,8 @@ class TeacherProfileController extends Controller
             ]);
             $videoPath = $request->file("video")->store("video");
         }
+
+        dd($thumbnailPath, $videoPath);
 
         do {
             $Video_ID = rand(100000, 999999);
