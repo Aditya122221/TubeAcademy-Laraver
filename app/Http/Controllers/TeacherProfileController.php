@@ -32,7 +32,7 @@ class TeacherProfileController extends Controller
             "classIn" => "required|in:IX,X,XI,XII",
         ]);
 
-        dd($request->thumbnail);
+        dd($request->thumbnail, $request->video);
 
         $thumbnailPath = "";
         $videoPath = "";
